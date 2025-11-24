@@ -164,6 +164,12 @@ class RTDEController(RobotController):
         """Returns the commanded linear velocity.
         """
         return self._client.get_target_linear_speed()
+    
+    @property
+    def tcp_force(self):
+        """Returns the current TCP force/torque.
+        """
+        return self._client.get_tcp_force()
 
     @property
     def elbow(self):
