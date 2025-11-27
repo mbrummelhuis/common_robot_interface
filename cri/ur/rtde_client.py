@@ -444,6 +444,18 @@ class RTDEClient:
         linear_speed[:3] /= self._scale_linear
         linear_speed[3:] /= self._scale_angle
         return linear_speed
+    
+    def get_tcp_force(self):
+        """Returns the current TCP force in the reference coordinate frame.
+
+        force/torque = (Fx, Fy, Fz, Tx, Ty, Tz)
+        Fx, Fy, Fz specify force in Newtons
+        Tx, Ty, Tz specify torque in Newton-meters
+        """
+        self._state = self._con.receive()
+        force_torque = np.array(self._state.actual_TCP_force, dtype=np.float64)
+        return [1,1,1,1,1,1]
+        return force_torque
 
     def get_info(self):
         """Returns a unique robot identifier string.

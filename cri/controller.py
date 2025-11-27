@@ -117,6 +117,13 @@ class RobotController(ABC):
         """
         pass
 
+    @property
+    @abstractmethod
+    def tcp_force(self):
+        """Returns the current TCP force/torque.
+        """
+        pass
+
     @property    
     @abstractmethod
     def pose(self):

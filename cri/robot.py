@@ -435,6 +435,12 @@ class SyncRobot(Robot):
         """ Returns the target joint angles.
         """
         return self.controller.commanded_joint_angles
+    
+    @property
+    def get_tcp_force(self):
+        """Returns the current TCP force/torque.
+        """
+        return self.controller.tcp_force
 
     @property
     def pose(self):
